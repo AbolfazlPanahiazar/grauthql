@@ -4,7 +4,7 @@
   "description": "An authentication stystem using graphQl and express.",
   "repository": {
     "type": "git",
-    "url": "github.com/stephengrider"
+    "url": "github.com/AbolfazlPanahiazar"
   },
   "main": "index.js",
   "scripts": {
