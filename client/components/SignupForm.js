@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
+import { hashHistory } from "react-router";
 
 import mutation from "../mutation/Signup";
 import query from "../queries/CurrentUser";
@@ -22,6 +23,12 @@ class SignupForm extends Component {
       });
   }
 
+  componentWillUpdate(nextProps) {
+    if (!this.props.data.user && nextProps.data.user) {
+      hashHistory.push("/dashboard");
+    }
+  }
+
   render() {
     return (
       <div>
@@ -35,4 +42,4 @@ class SignupForm extends Component {
   }
 }
 
-export default graphql(mutation)(SignupForm);
+export default graphql(query)(graphql(mutation)(SignupForm));
