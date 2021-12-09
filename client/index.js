@@ -5,6 +5,7 @@ import { ApolloProvider } from "react-apollo";
 import { Router, Route, hashHistory } from "react-router";
 
 import App from "./components/App";
+import requireAuth from "./components/requireAuth";
 import LoginForm from "./components/LoginForm";
 import SignupForm from "./components/SignupForm";
 import Dashboard from "./components/Dashboard";
@@ -28,7 +29,7 @@ const Root = () => {
         <Route path="/" component={App}>
           <Route path="/login" component={LoginForm} />
           <Route path="/signup" component={SignupForm} />
-          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard" component={requireAuth(Dashboard)} />
         </Route>
       </Router>
     </ApolloProvider>
